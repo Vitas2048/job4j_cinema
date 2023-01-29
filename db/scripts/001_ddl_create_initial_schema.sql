@@ -1,3 +1,11 @@
+drop table if exists files;
+drop table if exists genres;
+drop table if exists films;
+drop table if exists users;
+drop table if exists film_sessions;
+drop table if exists tickets;
+drop table if exists halls;
+
 create table files
 (
     id   serial primary key,
