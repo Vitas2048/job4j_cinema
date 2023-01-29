@@ -1,0 +1,3 @@
+insert into halls(name, row_count, place_count, description) values('Большой зал', 15, 25, 'Большой зал с местами 15х25, объемный звук, формат IMAX');
+insert into halls(name, row_count, place_count, description) values('Средний зал', 10, 25, 'Средний зал с местами 10х25, объемный звук');
+insert into halls(name, row_count, place_count, description) values('Малый зал', 7, 20, 'Малый зал с местами 7х20, объемный звук');
