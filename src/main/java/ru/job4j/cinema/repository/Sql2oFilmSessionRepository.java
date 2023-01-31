@@ -21,7 +21,7 @@ public class Sql2oFilmSessionRepository implements FilmSessionRepository {
             var query = connection.createQuery("""
                     SELECT * FROM film_sessions
                     """);
-            return query.executeAndFetch(FilmSession.class);
+            return query.setColumnMappings(FilmSession.COLUMN_MAPPING).executeAndFetch(FilmSession.class);
         }
     }
 
@@ -32,7 +32,7 @@ public class Sql2oFilmSessionRepository implements FilmSessionRepository {
                     SELECT * FROM film_sessions where film_id=:id
                     """)
                     .addParameter("filmId", id);
-            return query.executeAndFetch(FilmSession.class);
+            return query.setColumnMappings(FilmSession.COLUMN_MAPPING).executeAndFetch(FilmSession.class);
         }
     }
 }

@@ -37,20 +37,23 @@
             </div>
         </div>
     </nav>
+    <div class="container mt-2">
+        <h2 align="center">Фильмы в прокате</h2>
+    </div>
 </div>
 <div class="container">
     <div class="row">
-        <table>
+        <table class="table">
             <thead style="text-align: center">
-            <td></td>
-            <td>Название</td>
-            <td>Год выпуска</td>
-            <td>Жанр</td>
-            <td>Продолжительность, мин.</td>
-            <td>Описание</td>
+            <td scope="col"></td>
+            <td scope="col">Название</td>
+            <td scope="col">Год выпуска</td>
+            <td scope="col">Жанр</td>
+            <td scope="col">Продолжительность, мин.</td>
+            <td scope="col">Описание</td>
             </thead>
             <tbody>
-            <tr style="text-align: center" th:each="film: ${films}">
+            <tr style="text-align: center; vertical-align: middle" th:each="film: ${films}">
                 <td><img th:src="@{/files/{fileId}(fileId=*{film.fileId})}" class="w-100" alt="No image"></td>
                 <td><a th:text="${film.name}" th:href="@{/films/{filmId}(filmId=${film.id})}"
                                                   style="padding: 0 20px"/></a></td>

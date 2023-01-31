@@ -6,6 +6,7 @@ import ru.job4j.cinema.model.Film;
 import ru.job4j.cinema.repository.FilmRepository;
 
 import java.util.Collection;
+import java.util.Optional;
 
 @Service
 public class SimpleFilmService implements FilmService {
@@ -19,5 +20,10 @@ public class SimpleFilmService implements FilmService {
     @Override
     public Collection<Film> findAll() {
         return filmRepository.findAll();
+    }
+
+    @Override
+    public Optional<Film> findById(int id) {
+        return filmRepository.findById(id);
     }
 }

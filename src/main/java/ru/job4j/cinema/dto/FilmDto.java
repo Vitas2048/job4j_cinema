@@ -1,9 +1,5 @@
 package ru.job4j.cinema.dto;
 
-import ru.job4j.cinema.model.Film;
-
-import java.util.Objects;
-
 public class FilmDto {
 
     private int id;

@@ -37,9 +37,28 @@
             </div>
         </div>
     </nav>
+    <div class="container mt-2">
+        <h2 align="center">Расписание</h2>
+    </div>
 </div>
 <div class="container">
     <div class="row">
+        <table class="table">
+            <thead style="text-align: center" class="table">
+            <td scope="col">Название фильма</td>
+            <td scope="col">Зал</td>
+            <td scope="col">Начало сеанса</td>
+            <td scope="col">Конец сеанса</td>
+            </thead>
+            <tbody>
+            <tr style="text-align: center" th:each="filmSession: ${filmSessions}">
+                <td th:text="${filmSession.filmName}"/>
+                <td th:text="${filmSession.hallName}"/>
+                <td th:text="${filmSession.timeStart}"/>
+                <td th:text="${filmSession.timeEnd}"/>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 </body>

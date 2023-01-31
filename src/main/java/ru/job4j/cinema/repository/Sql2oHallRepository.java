@@ -22,7 +22,7 @@ public class Sql2oHallRepository implements HallRepository {
             var query = connection.createQuery("""
                     SELECT * FROM halls
                     """);
-            return query.executeAndFetch(Hall.class);
+            return query.setColumnMappings(Hall.COLUMN_MAPPING).executeAndFetch(Hall.class);
         }
     }
 
@@ -32,7 +32,7 @@ public class Sql2oHallRepository implements HallRepository {
             var query = connection.createQuery("""
                     SELECT * FROM halls WHERE id = :id
                     """).addParameter("id", id);
-            return Optional.of(query.executeAndFetchFirst(Hall.class));
+            return Optional.of(query.setColumnMappings(Hall.COLUMN_MAPPING).executeAndFetchFirst(Hall.class));
         }
     }
 }
