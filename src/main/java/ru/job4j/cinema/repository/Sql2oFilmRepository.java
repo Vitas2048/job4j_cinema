@@ -18,7 +18,7 @@ public class Sql2oFilmRepository implements FilmRepository {
     public Collection<Film> findAll() {
         try (var connection = sql2o.open()) {
             var query = connection.createQuery("SELECT * FROM FILMS");
-            return query.executeAndFetch(Film.class);
+            return query.setColumnMappings(Film.COLUMN_MAPPING).executeAndFetch(Film.class);
         }
     }
 }

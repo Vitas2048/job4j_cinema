@@ -15,9 +15,6 @@ public class Sql2oTicketRepository implements TicketRepository {
 
     private final Sql2o sql2o;
 
-    private Map<FilmSession, List<Ticket>> tickets = new HashMap<>();
-
-
     public Sql2oTicketRepository(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
@@ -65,7 +62,7 @@ public class Sql2oTicketRepository implements TicketRepository {
     }
 
     @Override
-    public Optional<List<Ticket>> findByUserId(User user) {
+    public Optional<Collection<Ticket>> findByUserId(User user) {
         try (var connection = sql2o.open()) {
             var query = connection.createQuery("""
                     SELECT FROM tickets WHERE user_id = :user_id

@@ -4,7 +4,7 @@ import ru.job4j.cinema.model.FilmSession;
 
 import java.util.Collection;
 
-public interface FilmSessionsRepository {
+public interface FilmSessionRepository {
 
     Collection<FilmSession> findAll();
 

@@ -7,11 +7,11 @@ import ru.job4j.cinema.model.FilmSession;
 import java.util.Collection;
 
 @Repository
-public class Sql2oFilmSessionsRepository implements FilmSessionsRepository {
+public class Sql2oFilmSessionRepository implements FilmSessionRepository {
 
     private final Sql2o sql2o;
 
-    public Sql2oFilmSessionsRepository(Sql2o sql2o) {
+    public Sql2oFilmSessionRepository(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
 
