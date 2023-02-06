@@ -8,12 +8,12 @@ import java.util.Optional;
 
 public interface TicketService {
 
-    void generate();
-
     Collection<Ticket> findAll();
 
-    Optional<Collection<Ticket>> findByUserId(User user);
+    Collection<Ticket> findByFilmSessionId(int id);
 
-    Optional<Ticket> setUserId(User user, Ticket ticket);
+    Collection<Ticket> findByUserId(User user);
+
+    boolean buyByUser(int userId, int sessionId, int rowNumber, int placeNumber);
 
 }

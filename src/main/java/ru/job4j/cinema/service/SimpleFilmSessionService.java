@@ -5,6 +5,7 @@ import ru.job4j.cinema.model.FilmSession;
 import ru.job4j.cinema.repository.FilmSessionRepository;
 
 import java.util.Collection;
+import java.util.Optional;
 
 @Service
 public class SimpleFilmSessionService implements FilmSessionService {
@@ -23,5 +24,10 @@ public class SimpleFilmSessionService implements FilmSessionService {
     @Override
     public Collection<FilmSession> findByFilmId(int id) {
         return filmSessionRepository.findByFilmId(id);
+    }
+
+    @Override
+    public Optional<FilmSession> findById(int id) {
+        return filmSessionRepository.findById(id);
     }
 }

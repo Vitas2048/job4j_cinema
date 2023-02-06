@@ -16,10 +16,6 @@ public class SimpleTicketService implements TicketService {
     public SimpleTicketService(TicketRepository sql2oTicketRepository) {
         this.ticketRepository = sql2oTicketRepository;
     }
-    @Override
-    public void generate() {
-        ticketRepository.generateAll();
-    }
 
     @Override
     public Collection<Ticket> findAll() {
@@ -27,12 +23,17 @@ public class SimpleTicketService implements TicketService {
     }
 
     @Override
-    public Optional<Collection<Ticket>> findByUserId(User user) {
+    public Collection<Ticket> findByFilmSessionId(int id) {
+        return ticketRepository.findByFilmSessionId(id);
+    }
+
+    @Override
+    public Collection<Ticket> findByUserId(User user) {
         return ticketRepository.findByUserId(user);
     }
 
     @Override
-    public Optional<Ticket> setUserId(User user, Ticket ticket) {
-        return ticketRepository.setUserId(user, ticket);
+    public boolean buyByUser(int userId, int sessionId, int rowNumber, int placeNumber) {
+        return ticketRepository.createByUser(userId, sessionId, rowNumber, placeNumber);
     }
 }

@@ -52,7 +52,7 @@
             </thead>
             <tbody>
             <tr style="text-align: center" th:each="filmSession: ${filmSessions}">
-                <td th:text="${filmSession.filmName}"/>
+                <td><a th:text="${filmSession.filmName}" th:href="@{/sessions/{filmSessionId}(filmSessionId=${filmSession.id})}"></a></td>
                 <td th:text="${filmSession.hallName}"/>
                 <td th:text="${filmSession.timeStart}"/>
                 <td th:text="${filmSession.timeEnd}"/>

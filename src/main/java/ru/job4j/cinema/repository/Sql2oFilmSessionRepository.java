@@ -5,6 +5,7 @@ import org.sql2o.Sql2o;
 import ru.job4j.cinema.model.FilmSession;
 
 import java.util.Collection;
+import java.util.Optional;
 
 @Repository
 public class Sql2oFilmSessionRepository implements FilmSessionRepository {
@@ -33,6 +34,18 @@ public class Sql2oFilmSessionRepository implements FilmSessionRepository {
                     """)
                     .addParameter("filmId", id);
             return query.setColumnMappings(FilmSession.COLUMN_MAPPING).executeAndFetch(FilmSession.class);
+        }
+    }
+
+    @Override
+    public Optional<FilmSession> findById(int id) {
+        try (var connection = sql2o.open()) {
+            var query = connection.createQuery("""
+                    SELECT * FROM film_sessions where id=:id
+                    """)
+                    .addParameter("id", id);
+            return Optional.ofNullable(query.setColumnMappings(FilmSession.COLUMN_MAPPING)
+                    .executeAndFetchFirst(FilmSession.class));
         }
     }
 }
