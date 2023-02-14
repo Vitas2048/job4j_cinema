@@ -28,8 +28,8 @@ public class SimpleTicketService implements TicketService {
     }
 
     @Override
-    public Collection<Ticket> findByUserId(User user) {
-        return ticketRepository.findByUserId(user);
+    public Collection<Ticket> findByUserId(int id) {
+        return ticketRepository.findByUserId(id);
     }
 
     @Override

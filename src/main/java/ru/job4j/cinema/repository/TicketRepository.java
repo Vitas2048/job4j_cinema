@@ -10,7 +10,7 @@ public interface TicketRepository {
 
     Collection<Ticket> findAll();
 
-    Collection<Ticket> findByUserId(User user);
+    Collection<Ticket> findByUserId(int id);
 
     Collection<Ticket> findByFilmSessionId(int id);
 

@@ -12,7 +12,7 @@ public interface TicketService {
 
     Collection<Ticket> findByFilmSessionId(int id);
 
-    Collection<Ticket> findByUserId(User user);
+    Collection<Ticket> findByUserId(int id);
 
     boolean buyByUser(int userId, int sessionId, int rowNumber, int placeNumber);
 
